@@ -30,7 +30,7 @@ public class KafkaProducer implements Producer {
 
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void setKafkaTemplate(KafkaTemplate<String, String> kafkaTemplate) {
+    public KafkaProducer(KafkaTemplate kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

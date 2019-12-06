@@ -1,34 +1,42 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package io.xream.reliable.config;
 
 import io.xream.reliable.produce.Producer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.FatalBeanException;
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.kafka.core.KafkaTemplate;
 
-@Configuration
-public class MQConfig {
+public class MQConfig implements
+        ApplicationListener<ApplicationStartedEvent> {
+    @Override
+    public void onApplicationEvent(ApplicationStartedEvent event) {
 
-    @Bean
-    public Producer getKafkaProducer(KafkaTemplate<String, String> kafkaTemplate){
-        KafkaProducer producer = new KafkaProducer();
-        producer.setKafkaTemplate(kafkaTemplate);
+        ProducerWrapper wrapper = event.getApplicationContext().getBean(ProducerWrapper.class);
+        ProducerCustomizer customizer = null;
 
-        return producer;
+        try {
+            customizer = event.getApplicationContext().getBean(ProducerCustomizer.class);
+        } catch (Exception e) {
+        }
+
+
+        Producer producer = null;
+        if (customizer != null){
+            producer = customizer.customize();
+        }
+
+        if (producer == null) {
+            KafkaTemplate<String, String> kafkaTemplate = null;
+            try {
+                kafkaTemplate = event.getApplicationContext().getBean(KafkaTemplate.class);
+            } catch (Exception e) {
+                throw new FatalBeanException("can't find any producer, no config like Kafka");
+            }
+
+            producer = new KafkaProducer(kafkaTemplate);
+        }
+
+        wrapper.setProducer(producer);
+
     }
 }

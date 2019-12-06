@@ -16,9 +16,12 @@
  */
 package io.xream.reliable;
 
+import io.xream.reliable.config.ProducerCustomizer;
+import io.xream.reliable.produce.Producer;
 import io.xream.x7.EnableReyClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import x7.EnableCorsConfig;
 import x7.EnableDateToLongForJackson;
@@ -42,6 +45,17 @@ public class App {
 		
     }
 
+
+//    @Bean
+//	public ProducerCustomizer producerCustomizer(){
+//
+//		return new ProducerCustomizer() {
+//			@Override
+//			public Producer customize() {
+//				return null; //Default is io.xream.reliable.config.KafkaProducer, you can use RocketMQ,RabbitMQ ....
+//			}
+//		};
+//	}
 
 }
 
