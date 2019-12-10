@@ -16,6 +16,7 @@
  */
 package io.xream.reliable.backend;
 
+import io.xream.reliable.api.reliable.DtoConverter;
 import io.xream.reliable.bean.constant.MessageStatus;
 import io.xream.reliable.bean.dto.ConsumedReliableDto;
 import io.xream.reliable.bean.dto.ReliableDto;
@@ -23,15 +24,13 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.remote.reliable.ReliableServiceRemote;
-import io.xream.x7.reliable.api.MessageTraceable;
 import io.xream.x7.reliable.TCCTopic;
+import io.xream.x7.reliable.api.MessageTraceable;
 import io.xream.x7.reliable.api.ReliableBackend;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import x7.core.bean.GenericObject;
 import x7.core.util.ExceptionUtil;
-import x7.core.util.JsonX;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +44,9 @@ public class ReliableBackendImpl implements ReliableBackend {
 
     @Autowired
     private ReliableServiceRemote reliableServiceRemote;
+
+    @Autowired
+    private DtoConverter dtoConverter;
 
     @Override
     @Transactional
@@ -79,14 +81,10 @@ public class ReliableBackendImpl implements ReliableBackend {
     @Transactional
     public void onConsumed(String svc, Object message, Runnable runnable) {
 
-        String body = ((ConsumerRecord<String, String>) message).value(); //KAFKA
-        ReliableDto dto = JsonX.toObject(body,ReliableDto.class);
+        ReliableDto dto = this.dtoConverter.convertOnConsumed(message);
 
         if (dto.isConsumed(svc))
             return;
-
-//        if (dto.isUnRegistered(svc))
-//            throw new RuntimeException(svc + " was not registered at annotation: @ReliableProducer(svcs={})");
 
         List<MessageResult> list = dto.getResultList();
         MessageResult mr = null;
@@ -111,8 +109,8 @@ public class ReliableBackendImpl implements ReliableBackend {
     @Override
     public boolean createNext(String id, int retryMax, String nextTopic, Object nextBody,Object preMessage,String[] svcs) {
 
-        String body = ((ConsumerRecord<String, String>) preMessage).value(); //KAFKA
-        ReliableDto dto = JsonX.toObject(body,ReliableDto.class);
+        ReliableDto dto = this.dtoConverter.convertOnConsumed(preMessage);
+
         String parentId = dto.getParentId();//先get parentId
 
         GenericObject go = new GenericObject(nextBody);
