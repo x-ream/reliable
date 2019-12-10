@@ -70,7 +70,7 @@ public class ScheduleReliableController {
     public boolean tryToProduceNext(){
 
         CriteriaBuilder builder = CriteriaBuilder.build(ReliableMessage.class);
-        builder.and().eq("status",MessageStatus.NEXT.name());
+        builder.and().eq("status",MessageStatus.NEXT);
 
         Criteria criteria = builder.get();
 
@@ -104,7 +104,7 @@ public class ScheduleReliableController {
 
         CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
         builder.resultKey("id").resultKey("svcDone").resultKey("svcList").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("body");
-        builder.and().eq("status", MessageStatus.SEND.toString());
+        builder.and().eq("status", MessageStatus.SEND);
         builder.and().lt("createAt", createAt);
 
         Criteria.ResultMappedCriteria resultMappedCriteria = builder.get();
@@ -156,7 +156,7 @@ public class ScheduleReliableController {
             } else {
                 if (flag) {
                     RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-                    reliableMessageRefreshCondition.refresh("status", MessageStatus.OK.name());
+                    reliableMessageRefreshCondition.refresh("status", MessageStatus.OK);
                     reliableMessageRefreshCondition.refresh("refreshAt", date);
                     reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
                     this.reliableMessageService.refresh(reliableMessageRefreshCondition);
@@ -181,11 +181,11 @@ public class ScheduleReliableController {
         long rrd = reliableRetryDuration < 5000 ? 5000 : reliableRetryDuration;
 
         long now = System.currentTimeMillis();
-        long sendAt = now - rrd;
+        final long sendAt = now - rrd;
 
         CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
         builder.resultKey("id").resultKey("svcList").resultKey("svcDone").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("topic").resultKey("body");
-        builder.and().eq("status", MessageStatus.SEND.toString());
+        builder.and().eq("status", MessageStatus.SEND);
 //        builder.and().x("retryCount < retryMax"); //需要人工补单
         builder.and().lt("sendAt", sendAt);
 
@@ -212,9 +212,10 @@ public class ScheduleReliableController {
             reliableMessage.setSvcList(svcList);
             reliableMessage.setSvcDone(MapUtils.getString(map, "svcDone"));
             reliableMessage.setRetryCount(MapUtils.getLongValue(map, "retryCount"));
-            reliableMessage.setRetryCount(MapUtils.getLongValue(map, "retryMax"));
+            reliableMessage.setRetryMax(MapUtils.getIntValue(map, "retryMax"));
             reliableMessage.setBody(go);
             reliableMessage.setTcc(MapUtils.getString(map, "tcc"));
+            reliableMessage.setSendAt(sendAt);
 
             rmList.add(reliableMessage);
         }
@@ -271,7 +272,7 @@ public class ScheduleReliableController {
             } else {
                 //进入人工补单审核流程
                 RefreshCondition<ReliableMessage> refreshCondition = new RefreshCondition<>();
-                refreshCondition.refresh("status", MessageStatus.FAIL.toString());
+                refreshCondition.refresh("status", MessageStatus.FAIL);
                 refreshCondition.refresh("refreshAt", date);
                 refreshCondition.and().eq("id", reliableMessage.getId());
                 this.reliableMessageService.refresh(refreshCondition);

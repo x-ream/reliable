@@ -129,7 +129,7 @@ public class ReliableBackendImpl implements ReliableBackend {
         reliableMessage.setSvcDone("&");
         reliableMessage.setSvcList(Arrays.asList(svcs));
         reliableMessage.setSendAt(0);
-        reliableMessage.setRetryCount(0);
+        reliableMessage.setRetryCount(0L);
         reliableMessage.setCreateAt(date);
         reliableMessage.setRefreshAt(date);
         reliableMessage.setStatus(MessageStatus.NEXT.name());

@@ -58,10 +58,5 @@ public class MessageResultServiceImpl implements MessageResultService {
         return this.repository.list(criteria);
     }
 
-    @Override
-    public List<Map<String, Object>> listByResultMap(Criteria.ResultMappedCriteria mrCriteria) {
-        return this.repository.list(mrCriteria);
-    }
-
 
 }

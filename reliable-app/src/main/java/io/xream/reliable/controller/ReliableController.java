@@ -28,16 +28,16 @@ import io.xream.reliable.produce.Producer;
 import io.xream.x7.reliable.TCCTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import x7.core.bean.Criteria;
+import x7.core.bean.CriteriaBuilder;
 import x7.core.bean.condition.RefreshCondition;
 import x7.core.util.JsonX;
 import x7.core.util.StringUtil;
+import x7.core.web.Direction;
+import x7.core.web.ViewEntity;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Transactional
 @RestController
@@ -154,7 +154,7 @@ public class ReliableController {
             RefreshCondition<MessageResult> rmCondition = new RefreshCondition<>();
             rmCondition.refresh("status", dto.getTcc());
             rmCondition.refresh("refreshAt", date);
-            rmCondition.and().eq("id", resultId).and().eq("status", MessageStatus.BLANK.toString());
+            rmCondition.and().eq("id", resultId).and().eq("status", MessageStatus.BLANK);
             boolean flag = this.messageResultService.refresh(rmCondition);
             if (!flag)
                 throw new ReliableExceptioin("Problem with refresh resultMessage, id = " + resultId);
@@ -203,7 +203,7 @@ public class ReliableController {
         if (message.getTcc().equals(TCCTopic._TCC_NONE.name()))
             return true;
 
-        boolean flag = this.tccBusiness.configm(message,reliableMessageService,producer);
+        boolean flag = this.tccBusiness.confirm(message,reliableMessageService,producer);
 
         if (!flag)
             throw new RuntimeException("ERROR, at ReliableProducer TCC confirm");
@@ -229,5 +229,6 @@ public class ReliableController {
 
         return this.tccBusiness.cancel(message,reliableMessageService,producer);
     }
+
 
 }

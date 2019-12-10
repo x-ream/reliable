@@ -36,16 +36,16 @@ public class TccBusiness {
     public final static String SVC_DONE_PREFIX = "&";
 
 
-    public boolean configm(ReliableMessage reliableMessage, ReliableMessageService reliableMessageService, Producer producer) {
+    public boolean confirm(ReliableMessage reliableMessage, ReliableMessageService reliableMessageService, Producer producer) {
 
         Date date = new Date();
 
         RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("status", MessageStatus.OK.toString());
+        reliableMessageRefreshCondition.refresh("status", MessageStatus.OK);
         reliableMessageRefreshCondition.refresh("refreshAt", date);
-        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CONFIRM.name());
+        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CONFIRM);
         reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-        reliableMessageRefreshCondition.and().eq("tcc", TCCTopic._TCC_TRY.name());
+        reliableMessageRefreshCondition.and().eq("tcc", TCCTopic._TCC_TRY);
         boolean flag = reliableMessageService.refresh(reliableMessageRefreshCondition); //STEP 1
 
         if (!flag)
@@ -83,11 +83,11 @@ public class TccBusiness {
         Date date = new Date();
 
         RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("status", MessageStatus.FAIL.toString());
+        reliableMessageRefreshCondition.refresh("status", MessageStatus.FAIL);
         reliableMessageRefreshCondition.refresh("refreshAt", date);
-        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CANCEL.name());
+        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CANCEL);
         reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-        reliableMessageRefreshCondition.and().ne("tcc", TCCTopic._TCC_CANCEL.name());
+        reliableMessageRefreshCondition.and().ne("tcc", TCCTopic._TCC_CANCEL);
         boolean flag = reliableMessageService.refresh(reliableMessageRefreshCondition); //STEP 1
 
         if (!flag)

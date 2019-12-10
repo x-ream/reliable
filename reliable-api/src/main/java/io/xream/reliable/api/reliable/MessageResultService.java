@@ -27,9 +27,6 @@ public interface MessageResultService {
 
     boolean create(MessageResult result);
     boolean refresh(RefreshCondition<MessageResult> condition);
-    boolean remove(String id);
-
-    List<Map<String, Object>> listByResultMap(Criteria.ResultMappedCriteria mrCriteria);
 
     boolean removeByMessageId(String id);
 

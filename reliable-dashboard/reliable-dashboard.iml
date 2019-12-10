@@ -16,6 +16,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="reliable-spring-boot-starter" />
+    <orderEntry type="module" module-name="reliable-bean" />
+    <orderEntry type="module" module-name="reliable-api" />
     <orderEntry type="library" name="Maven: io.xream.x7:spring-boot-starter-x7:2.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.1.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.1.3.RELEASE" level="project" />

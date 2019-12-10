@@ -18,8 +18,12 @@ package io.xream.reliable.remote.reliable;
 
 import io.xream.reliable.bean.dto.ConsumedReliableDto;
 import io.xream.reliable.bean.dto.ReliableDto;
+import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.x7.reyc.ReyClient;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 @ReyClient("http://${reliable.app}/message" )
 public interface ReliableServiceRemote {
@@ -38,4 +42,5 @@ public interface ReliableServiceRemote {
 
     @RequestMapping("/cancel")
     boolean cancel(String msgId);
+
 }

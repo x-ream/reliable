@@ -11,5 +11,13 @@
 
     <artifactId>reliable-dashboard</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.xream.reliable</groupId>
+            <artifactId>reliable-spring-boot-starter</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

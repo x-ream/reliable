@@ -40,7 +40,7 @@ public class NextBusiness {
 
         CriteriaBuilder builder = CriteriaBuilder.build(ReliableMessage.class);
         builder.and().eq("parentId",parentId);
-        builder.and().eq("status",MessageStatus.NEXT.name());
+        builder.and().eq("status",MessageStatus.NEXT);
         Criteria criteria = builder.get();
 
         List<ReliableMessage> list = reliableMessageService.listByCriteria(criteria);
@@ -49,7 +49,7 @@ public class NextBusiness {
 
         for (ReliableMessage reliableMessage : list) {
             RefreshCondition<ReliableMessage> condition = new RefreshCondition<>();
-            condition.refresh("status",MessageStatus.SEND.name());
+            condition.refresh("status",MessageStatus.SEND);
             condition.refresh("sendAt",date.getTime());
             condition.refresh("refreshAt", date);
             condition.and().eq("id", reliableMessage.getId());

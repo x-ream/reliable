@@ -41,7 +41,7 @@ public class ReliableMessage<T> implements Serializable {
     private GenericObject<T> body;
     private Date refreshAt;
     private Date createAt;
-    private long retryCount;
+    private Long retryCount;
     private long sendAt;
 
 
@@ -173,6 +173,8 @@ public class ReliableMessage<T> implements Serializable {
     }
 
     public Boolean getUseTcc() {
+        if (this.tcc == null)
+            return false;
         return ! this.tcc.equals(TCCTopic._TCC_NONE.name());
     }
 
@@ -208,11 +210,11 @@ public class ReliableMessage<T> implements Serializable {
         this.createAt = createAt;
     }
 
-    public long getRetryCount() {
+    public Long getRetryCount() {
         return retryCount;
     }
 
-    public void setRetryCount(long retryCount) {
+    public void setRetryCount(Long retryCount) {
         this.retryCount = retryCount;
     }
 

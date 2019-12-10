@@ -32,16 +32,18 @@ public class ReliableMessageServiceImpl implements ReliableMessageService {
 
     @Autowired
     private ReliableMessageRepository repository;
-
+    @Override
     public boolean create(ReliableMessage message) {
         this.repository.create(message);
         return true;
     }
 
-    public boolean refresh(RefreshCondition<ReliableMessage> condition) {
-        return this.repository.refresh(condition);
+    @Override
+    public boolean refresh(RefreshCondition<ReliableMessage> refreshCondition) {
+        return this.repository.refresh(refreshCondition);
     }
 
+    @Override
     public boolean remove(String id) {
         return this.repository.remove(id);
     }
