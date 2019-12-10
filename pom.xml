@@ -9,7 +9,7 @@
     <artifactId>reliable</artifactId>
     <name>reliable</name>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.0.RELEASE</version>
     <description>http://reliable.xream.io</description>
     <url>http://reliable.xream.io</url>
 

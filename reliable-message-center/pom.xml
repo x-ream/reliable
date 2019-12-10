@@ -17,6 +17,7 @@
         <maven.test.skip>true</maven.test.skip>
         <fastjson.version>1.2.60</fastjson.version>
         <mysql.version>8.0.17</mysql.version>
+        <reliable.version>1.0.0.RELEASE</reliable.version>
     </properties>
 
     <modules>
@@ -39,6 +40,17 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.xream.reliable</groupId>
+            <artifactId>reliable-bean</artifactId>
+            <version>${reliable.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.xream.reliable</groupId>
+            <artifactId>reliable-api</artifactId>
+            <version>${reliable.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

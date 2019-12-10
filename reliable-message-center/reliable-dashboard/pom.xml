@@ -12,16 +12,6 @@
     <artifactId>reliable-dashboard</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>io.xream.reliable</groupId>
-            <artifactId>reliable-bean</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.xream.reliable</groupId>
-            <artifactId>reliable-api</artifactId>
-            <version>1.0.1</version>
-        </dependency>
     </dependencies>
 
 
