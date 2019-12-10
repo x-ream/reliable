@@ -7,7 +7,7 @@ MAINTAINER Sim <8966188@qq.com>
 ENV ACTIVE test
 ENV JAVA_OPTS -Xms1024m -Xmx1024m -Xmn320m
 
-ADD target/reliable-dashboard-1.0.0.RELEASE.jar /data/deploy/reliable-dashboard.jar
+ADD target/reliable-dashboard-1.0.1.jar /data/deploy/reliable-dashboard.jar
 
 
 CMD ["mkdir -p /data/logs"]
