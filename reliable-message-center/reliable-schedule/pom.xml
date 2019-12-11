@@ -32,7 +32,7 @@
 
                 </executions>
                 <configuration>
-                    <mainClass>App</mainClass>
+                    <mainClass>io.xream.reliable.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>

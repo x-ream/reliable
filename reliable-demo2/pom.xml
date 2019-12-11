@@ -47,12 +47,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-log4j12</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -102,7 +96,7 @@
 
                 </executions>
                 <configuration>
-                    <mainClass>App</mainClass>
+                    <mainClass>io.xream.reliable.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
