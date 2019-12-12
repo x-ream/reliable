@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ io.xream.reliable.ReliableStarter,\
  io.xream.reliable.backend.ReliableBackendImpl
+

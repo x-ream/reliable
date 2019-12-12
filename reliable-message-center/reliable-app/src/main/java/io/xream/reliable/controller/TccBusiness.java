@@ -87,6 +87,7 @@ public class TccBusiness {
         reliableMessageRefreshCondition.refresh("refreshAt", date);
         reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CANCEL);
         reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
+        reliableMessageRefreshCondition.and().eq("svcDone",reliableMessage.getSvcDone());
         reliableMessageRefreshCondition.and().ne("tcc", TCCTopic._TCC_CANCEL);
         boolean flag = reliableMessageService.refresh(reliableMessageRefreshCondition); //STEP 1
 

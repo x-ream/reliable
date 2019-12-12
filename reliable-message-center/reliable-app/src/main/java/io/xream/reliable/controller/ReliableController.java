@@ -183,6 +183,7 @@ public class ReliableController {
         reliableMessageRefreshCondition.refresh("svcDone = CONCAT(svcDone, ? , '" + TccBusiness.SVC_DONE_PREFIX +"' )", svc);
         reliableMessageRefreshCondition.refresh("refreshAt", date);
         reliableMessageRefreshCondition.and().eq("id", msgId);
+        reliableMessageRefreshCondition.and().eq("tcc", dto.getUseTcc() ? dto.getTcc() : null);
 
         return this.reliableMessageService.refresh(reliableMessageRefreshCondition);
 
