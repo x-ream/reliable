@@ -16,6 +16,10 @@
 ## code config
     implements DtoConverter
     
+## spring boot properties
+    reliable.app=reliable-app (k8s service name)
+    #reliable.app=http://ip:7717 (ip:port)
+    
 ## maven dependency
 ```xml
 <reliable.version>1.1.0.RELEASE</reliable.version>
