@@ -17,7 +17,13 @@
     implements DtoConverter
     
 ## maven dependency
-    reliable-spring-boot-starter
+```xml
+<reliable.version>1.1.0.RELEASE</reliable.version>
 
+<dependency>
+    <groupId>io.xream.reliable</groupId>
+    <artifactId>reliable-spring-boot-starter</artifactId>
+    <version>${reliable.version}</version>
+</dependency>
 
-
+```  
