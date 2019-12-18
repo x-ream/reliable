@@ -7,16 +7,16 @@
     mq transaction, with tcc option
 
 
-##code annotation
+## code annotation
     (x7/x7-reyc/io.xream.x7.reliable:)
     @EnableReliabilityManagement
     @ReliableProducer
     @ReliableOnConsumed
 
-##code config
+## code config
     implements DtoConverter
     
-##maven dependency
+## maven dependency
     reliable-spring-boot-starter
 
 
