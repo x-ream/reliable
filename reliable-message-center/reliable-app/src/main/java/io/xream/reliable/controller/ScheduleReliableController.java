@@ -196,8 +196,8 @@ public class ScheduleReliableController {
 
         for (Map<String, Object> map : list) {
 
-            String str = MapUtils.getString(map, "body");
-            GenericObject go = JsonX.toObject(str, GenericObject.class);
+            Object bodyObj = MapUtils.getObject(map, "body");
+            GenericObject go = (GenericObject) bodyObj;
 
             List<String> svcList = (List<String>) MapUtils.getObject(map, "svcList");
 
