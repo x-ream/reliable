@@ -16,10 +16,7 @@
  */
 package io.xream.reliable;
 
-import io.xream.reliable.backend.ReliableBackendImpl;
 import io.xream.x7.EnableReyClient;
-import io.xream.x7.reliable.api.ReliableBackend;
-import io.xream.x7.reyc.BackendService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -29,7 +26,7 @@ import x7.EnableTransactionManagementReadable;
 import x7.EnableX7Repository;
 
 
-@SpringBootApplication()
+@SpringBootApplication
 @EnableTransactionManagement
 @EnableTransactionManagementReadable
 @EnableX7Repository

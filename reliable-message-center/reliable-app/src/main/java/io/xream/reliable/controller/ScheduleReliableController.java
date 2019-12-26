@@ -118,14 +118,10 @@ public class ScheduleReliableController {
 
         for (Map<String, Object> map : list) {
 
-            String svcListStr = MapUtils.getString(map, "svcList");
-            List<String> svcList = JsonX.toList(svcListStr, String.class);
+            List<String> svcList = (List<String>)MapUtils.getObject(map, "svcList");
             String tcc = MapUtils.getString(map, "tcc");
-            Map bodyMap = MapUtils.getMap(map, "body");
-            GenericObject go = new GenericObject();
-            go.setClzz(MapUtils.getString(bodyMap, "clzz"));
-            go.setObj(MapUtils.getObject(bodyMap, "obj"));
-
+            Object bodyObj = MapUtils.getObject(map, "body");
+            GenericObject go = (GenericObject) bodyObj;
 
             ReliableMessage reliableMessage = new ReliableMessage();
             reliableMessage.setId(MapUtils.getString(map, "id"));
@@ -203,8 +199,7 @@ public class ScheduleReliableController {
             String str = MapUtils.getString(map, "body");
             GenericObject go = JsonX.toObject(str, GenericObject.class);
 
-            str = MapUtils.getString(map, "svcList");
-            List<String> svcList = JsonX.toList(str, String.class);
+            List<String> svcList = (List<String>) MapUtils.getObject(map, "svcList");
 
             ReliableMessage reliableMessage = new ReliableMessage();
             reliableMessage.setId(MapUtils.getString(map, "id"));
