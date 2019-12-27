@@ -19,7 +19,7 @@ public class PaymentController  {
     @Autowired
     private CatRepository repository;
 
-    @ReliableProducer(topic = "CAT_PAID", type = Cat.class, svcs = {"cat-order","cat-settle"})
+    @ReliableProducer(useTcc=true,topic = "CAT_PAID",  svcs = {"cat-order","cat-settle"})
     @RequestMapping("/pay")
     public ViewEntity pay(@RequestBody Cat cat) {
 

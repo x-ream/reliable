@@ -5,12 +5,13 @@ import io.xream.x7.reliable.EnableReliabilityManagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import x7.*;
+import x7.EnableCorsConfig;
+import x7.EnableDateToLongForJackson;
+import x7.EnableX7Repository;
 
 
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableTransactionManagementReadable
 @EnableReliabilityManagement
 @EnableX7Repository
 @EnableDateToLongForJackson

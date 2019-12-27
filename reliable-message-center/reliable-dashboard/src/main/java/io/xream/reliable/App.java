@@ -22,12 +22,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import x7.EnableCorsConfig;
 import x7.EnableDateToLongForJackson;
-import x7.EnableTransactionManagementReadable;
 
 
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableTransactionManagementReadable
 @EnableDateToLongForJackson
 @EnableReyClient
 @EnableCorsConfig
