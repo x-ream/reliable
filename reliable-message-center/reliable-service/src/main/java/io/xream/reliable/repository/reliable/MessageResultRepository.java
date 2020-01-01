@@ -18,7 +18,7 @@ package io.xream.reliable.repository.reliable;
 
 import io.xream.reliable.bean.entity.MessageResult;
 import org.springframework.stereotype.Repository;
-import x7.repository.BaseRepository;
+import io.xream.x7.repository.BaseRepository;
 
 @Repository
 public interface MessageResultRepository extends BaseRepository<MessageResult> {

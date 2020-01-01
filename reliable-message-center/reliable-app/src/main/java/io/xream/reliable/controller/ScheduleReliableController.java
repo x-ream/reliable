@@ -32,12 +32,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import x7.core.bean.Criteria;
-import x7.core.bean.CriteriaBuilder;
-import x7.core.bean.GenericObject;
-import x7.core.bean.condition.RefreshCondition;
-import x7.core.util.JsonX;
-import x7.core.util.StringUtil;
+import io.xream.x7.common.bean.Criteria;
+import io.xream.x7.common.bean.CriteriaBuilder;
+import io.xream.x7.common.bean.GenericObject;
+import io.xream.x7.common.bean.condition.RefreshCondition;
+import io.xream.x7.common.util.JsonX;
+import io.xream.x7.common.util.StringUtil;
 
 import java.util.*;
 

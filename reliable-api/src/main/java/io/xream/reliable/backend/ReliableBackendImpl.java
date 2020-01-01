@@ -34,8 +34,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import x7.core.bean.GenericObject;
-import x7.core.util.ExceptionUtil;
+import io.xream.x7.common.bean.GenericObject;
+import io.xream.x7.common.util.ExceptionUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

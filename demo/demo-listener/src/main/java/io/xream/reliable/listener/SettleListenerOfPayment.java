@@ -9,7 +9,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.KafkaListener;
-import x7.core.util.JsonX;
+import io.xream.x7.common.util.JsonX;
 
 @Configuration
 public class SettleListenerOfPayment {

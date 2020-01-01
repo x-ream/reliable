@@ -16,7 +16,7 @@
  */
 package io.xream.reliable.bean.entity;
 
-import x7.core.repository.X;
+import io.xream.x7.common.repository.X;
 
 import java.io.Serializable;
 import java.util.Date;

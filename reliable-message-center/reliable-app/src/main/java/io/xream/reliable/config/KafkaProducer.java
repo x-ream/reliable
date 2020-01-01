@@ -21,7 +21,7 @@ import io.xream.reliable.produce.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
-import x7.core.util.ExceptionUtil;
+import io.xream.x7.common.util.ExceptionUtil;
 
 public class KafkaProducer implements Producer {
 

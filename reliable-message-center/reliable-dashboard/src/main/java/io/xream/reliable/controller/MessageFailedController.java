@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import x7.core.web.ViewEntity;
+import io.xream.x7.common.web.ViewEntity;
 
 import java.util.List;
 

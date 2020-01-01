@@ -17,8 +17,8 @@
 package io.xream.reliable.bean.entity;
 
 import io.xream.x7.reliable.TCCTopic;
-import x7.core.bean.GenericObject;
-import x7.core.repository.X;
+import io.xream.x7.common.bean.GenericObject;
+import io.xream.x7.common.repository.X;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -21,9 +21,9 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.repository.reliable.MessageResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import x7.core.bean.Criteria;
-import x7.core.bean.condition.RefreshCondition;
-import x7.repository.ManuRepository;
+import io.xream.x7.common.bean.Criteria;
+import io.xream.x7.common.bean.condition.RefreshCondition;
+import io.xream.x7.repository.ManuRepository;
 
 import java.util.List;
 import java.util.Map;

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import x7.core.bean.Criteria;
-import x7.core.bean.CriteriaBuilder;
-import x7.core.bean.condition.RefreshCondition;
-import x7.core.web.Direction;
+import io.xream.x7.common.bean.Criteria;
+import io.xream.x7.common.bean.CriteriaBuilder;
+import io.xream.x7.common.bean.condition.RefreshCondition;
+import io.xream.x7.common.web.Direction;
 
 import java.util.List;
 import java.util.Map;
