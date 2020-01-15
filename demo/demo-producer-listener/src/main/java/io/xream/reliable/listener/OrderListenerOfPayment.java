@@ -1,5 +1,6 @@
 package io.xream.reliable.listener;
 
+import io.xream.reliable.api.reliable.DtoConverter;
 import io.xream.reliable.bean.CatOrder;
 import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.controller.OrderController;
@@ -15,6 +16,9 @@ public class OrderListenerOfPayment {
 
     @Autowired
     private OrderController orderController;
+
+    @Autowired
+    private DtoConverter dtoConverter;
 
     @ReliableOnConsumed(svc = "cat-order")
     @KafkaListener(topics = "CAT_PAID")
