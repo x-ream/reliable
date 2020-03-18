@@ -5,7 +5,7 @@
     <parent>
         <artifactId>reliable-message-center</artifactId>
         <groupId>io.xream.reliable</groupId>
-        <version>1.1.5.RELEASE</version>
+        <version>1.1.6.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +15,7 @@
         <dependency>
             <groupId>io.xream.reliable</groupId>
             <artifactId>reliable-service</artifactId>
-            <version>1.1.5.RELEASE</version>
+            <version>1.1.6.RELEASE</version>
         </dependency>
     </dependencies>
 
