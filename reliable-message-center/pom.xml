@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>io.xream.reliable</groupId>
-    <version>1.1.8.RELEASE</version>
+    <version>1.1.9.RELEASE</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>reliable-message-center</artifactId>
     <packaging>pom</packaging>
@@ -17,7 +17,7 @@
         <maven.test.skip>true</maven.test.skip>
         <fastjson.version>1.2.60</fastjson.version>
         <mysql.version>8.0.17</mysql.version>
-        <reliable.version>1.1.8.RELEASE</reliable.version>
+        <reliable.version>1.1.9.RELEASE</reliable.version>
     </properties>
 
     <modules>
