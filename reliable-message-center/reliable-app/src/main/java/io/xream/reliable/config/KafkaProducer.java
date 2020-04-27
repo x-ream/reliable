@@ -39,7 +39,9 @@ public class KafkaProducer implements Producer {
 
         try {
             kafkaTemplate.send(topic, message).get();
-            logger.info("Kafka produce, topic = {}, data = {}", topic, message);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Kafka produce, topic = {}, data = {}", topic, message);
+            }
         }catch (Throwable ex) {
             String str = ExceptionUtil.getMessage(ex);
             logger.error("Kafka produce error, ex = {}, topic = {}, data = {}", str, topic, message);
