@@ -11,28 +11,27 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="reliable-bean" />
     <orderEntry type="module" module-name="reliable-api" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-spring-boot-starter:2.3.8.RELEASE" level="project" />
+    <orderEntry type="module" module-name="x7-spring-boot-starter" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.2.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-id-generator:2.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-common:2.3.8.RELEASE" level="project" />
+    <orderEntry type="module" module-name="x7-id-generator" />
+    <orderEntry type="module" module-name="x7-common" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-lock:2.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-cache:2.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-jdbc-template-plus:2.3.8.RELEASE" level="project" />
+    <orderEntry type="module" module-name="x7-lock" />
+    <orderEntry type="module" module-name="x7-cache" />
+    <orderEntry type="module" module-name="x7-jdbc-template-plus" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.9" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-redis-integration:2.3.8.RELEASE" level="project" />
+    <orderEntry type="module" module-name="x7-redis-integration" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.2.4.RELEASE" level="project" />
@@ -62,7 +61,7 @@
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-micrometer:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-circuitbreaker:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-core:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.xream.x7:x7-reyc:2.3.8.RELEASE" level="project" />
+    <orderEntry type="module" module-name="x7-reyc" />
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-retry:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.brave:brave-core:3.9.0" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.java:zipkin:1.0.0" level="project" />
