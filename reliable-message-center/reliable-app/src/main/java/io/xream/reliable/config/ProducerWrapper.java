@@ -1,9 +1,8 @@
 package io.xream.reliable.config;
 
 import io.xream.reliable.produce.Producer;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+
 public class ProducerWrapper implements Producer {
 
     private Producer producer;

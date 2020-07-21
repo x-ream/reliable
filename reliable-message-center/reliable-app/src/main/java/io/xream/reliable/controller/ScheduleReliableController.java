@@ -39,6 +39,7 @@ import io.xream.x7.common.bean.condition.RefreshCondition;
 import io.xream.x7.common.util.JsonX;
 import io.xream.x7.common.util.StringUtil;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 @RestController
@@ -52,6 +53,9 @@ public class ScheduleReliableController {
 
     @Autowired
     private Producer producer;
+
+    @Resource(name = "nextProducer")
+    private Producer nextProducer;
 
     @Autowired
     private TccBusiness tccBusiness;
@@ -90,7 +94,7 @@ public class ScheduleReliableController {
         for (String parentId : map.keySet()){
             ReliableMessage reliableMessage = this.reliableMessageService.get(parentId);
             if (reliableMessage.getStatus().equals(MessageStatus.OK.name())){
-                this.nextBusiness.produce(parentId,reliableMessageService,producer);
+                this.nextBusiness.produce(parentId,reliableMessageService,nextProducer);
             }
         }
 
@@ -102,7 +106,7 @@ public class ScheduleReliableController {
 
         Date createAt = new Date(System.currentTimeMillis() - checkStatusDuration);
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
+        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
         builder.resultKey("id").resultKey("svcDone").resultKey("svcList").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("body");
         builder.and().eq("status", MessageStatus.SEND);
         builder.and().lt("createAt", createAt);
@@ -158,7 +162,7 @@ public class ScheduleReliableController {
                     this.reliableMessageService.refresh(reliableMessageRefreshCondition);
 
                     try {
-                        this.nextBusiness.produce(reliableMessage.getId(),reliableMessageService,producer);
+                        this.nextBusiness.produce(reliableMessage.getId(),reliableMessageService,nextProducer);
                     }catch (Exception e) {
 
                     }
@@ -179,7 +183,7 @@ public class ScheduleReliableController {
         long now = System.currentTimeMillis();
         final long sendAt = now - rrd;
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
+        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
         builder.resultKey("id").resultKey("svcList").resultKey("svcDone").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("topic").resultKey("body");
         builder.and().eq("status", MessageStatus.SEND);
 //        builder.and().x("retryCount < retryMax"); //需要人工补单
@@ -285,7 +289,7 @@ public class ScheduleReliableController {
         cleanStatusList.add(MessageStatus.OK.toString());
         cleanStatusList.add(MessageStatus.BLANK.toString());
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
+        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
         builder.resultKey("id");
         builder.and().eq("underConstruction", false);
         builder.and().in("status", cleanStatusList);

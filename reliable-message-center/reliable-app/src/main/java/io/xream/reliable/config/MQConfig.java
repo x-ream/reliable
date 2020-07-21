@@ -33,7 +33,7 @@ public class MQConfig implements
                 throw new FatalBeanException("can't find any producer, no config like Kafka");
             }
 
-            producer = new KafkaProducer(kafkaTemplate);
+            producer = new DefaultKafkaProducer(kafkaTemplate);
         }
 
         wrapper.setProducer(producer);

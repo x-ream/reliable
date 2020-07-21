@@ -37,6 +37,7 @@ import io.xream.x7.common.util.StringUtil;
 import io.xream.x7.common.web.Direction;
 import io.xream.x7.common.web.ViewEntity;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 @Transactional
@@ -52,6 +53,9 @@ public class ReliableController {
 
     @Autowired
     private Producer producer;
+
+    @Resource(name = "nextProducer")
+    private Producer nextProducer;
 
     @Autowired
     private TccBusiness tccBusiness;
@@ -210,7 +214,7 @@ public class ReliableController {
             throw new RuntimeException("ERROR, at ReliableProducer TCC confirm");
 
         try {
-            this.nextBusiness.produce(message.getId(), reliableMessageService, producer);
+            this.nextBusiness.produce(message.getId(), reliableMessageService, nextProducer);
         }catch (Exception e) {
             // 需要任务补偿
         }

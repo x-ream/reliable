@@ -26,7 +26,7 @@ public class FailedController {
     @RequestMapping(value = "/find", method = RequestMethod.GET)
     public List<Map<String,Object>> findFailed() {
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
+        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
         builder.resultKey("id").resultKey("status").resultKey("retryMax").resultKey("topic");
         builder.and().eq("status", MessageStatus.FAIL);
         builder.and().gt("retryMax", 0);
@@ -42,7 +42,7 @@ public class FailedController {
     @RequestMapping(value = "/find/{topic}", method = RequestMethod.GET)
     public List<Map<String,Object>> findFailedByTopic(@PathVariable String topic) {
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped(ReliableMessage.class);
+        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
         builder.resultKey("id").resultKey("status").resultKey("retryMax").resultKey("topic");
         builder.and().eq("status", MessageStatus.FAIL);
         builder.and().eq("topic",topic);
