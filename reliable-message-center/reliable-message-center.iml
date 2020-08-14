@@ -34,22 +34,22 @@
     <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.45.Final" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-spring-boot2:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.vavr:vavr:0.10.0" level="project" />
-    <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.10.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-spring-boot-common:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-spring:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-annotations:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-consumer:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-circularbuffer:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-framework-common:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-ratelimiter:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-bulkhead:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-micrometer:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-circuitbreaker:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-core:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-spring-boot2:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.vavr:vavr:0.10.2" level="project" />
+    <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.10.2" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-spring:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-annotations:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-consumer:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-circularbuffer:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-framework-common:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-ratelimiter:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-bulkhead:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-timelimiter:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-micrometer:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-circuitbreaker:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-core:1.4.0" level="project" />
     <orderEntry type="module" module-name="x7-reyc" />
-    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-retry:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-retry:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.brave:brave-core:3.9.0" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.java:zipkin:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.brave:brave-spancollector-http:3.9.0" level="project" />
