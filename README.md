@@ -22,7 +22,7 @@
     
 ## maven dependency
 ```xml
-<reliable.version>1.1.13.RELEASE</reliable.version>
+<reliable.version>1.1.14.RELEASE</reliable.version>
 
 <dependency>
     <groupId>io.xream.reliable</groupId>
