@@ -23,7 +23,7 @@ import io.xream.sqli.core.builder.Criteria;
 import io.xream.sqli.core.builder.condition.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import io.xream.sqli.repository.ManuRepository;
+import io.xream.sqli.repository.api.ManuRepository;
 
 import java.util.List;
 
