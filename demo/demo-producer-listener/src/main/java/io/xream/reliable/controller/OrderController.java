@@ -3,12 +3,12 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.bean.CatOrder;
 import io.xream.reliable.repository.CatOrderRepository;
+import io.xream.sqli.core.builder.condition.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.xream.x7.common.bean.condition.RefreshCondition;
 import io.xream.x7.common.web.ViewEntity;
 
 @Transactional

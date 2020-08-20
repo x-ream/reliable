@@ -22,11 +22,11 @@ import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
+import io.xream.sqli.core.builder.Criteria;
+import io.xream.sqli.core.builder.CriteriaBuilder;
+import io.xream.sqli.core.builder.condition.RefreshCondition;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import io.xream.x7.common.bean.Criteria;
-import io.xream.x7.common.bean.CriteriaBuilder;
-import io.xream.x7.common.bean.condition.RefreshCondition;
 import io.xream.x7.common.util.JsonX;
 
 import java.util.Date;

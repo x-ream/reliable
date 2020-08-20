@@ -23,8 +23,8 @@ public class PaymentController  {
     @RequestMapping("/pay")
     public ViewEntity pay(@RequestBody Cat cat) {
 
-        long id = repository.create(cat);
+        repository.create(cat);
 
-        return ViewEntity.ok(id);
+        return ViewEntity.ok();
     }
 }

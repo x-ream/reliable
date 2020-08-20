@@ -17,11 +17,11 @@
 package io.xream.reliable.api.reliable;
 
 import io.xream.reliable.bean.entity.MessageResult;
-import io.xream.x7.common.bean.Criteria;
-import io.xream.x7.common.bean.condition.RefreshCondition;
+import io.xream.sqli.core.builder.Criteria;
+import io.xream.sqli.core.builder.condition.RefreshCondition;
+
 
 import java.util.List;
-import java.util.Map;
 
 public interface MessageResultService {
 

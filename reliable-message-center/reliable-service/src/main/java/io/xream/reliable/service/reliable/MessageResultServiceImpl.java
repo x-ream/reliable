@@ -19,14 +19,13 @@ package io.xream.reliable.service.reliable;
 import io.xream.reliable.api.reliable.MessageResultService;
 import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.repository.reliable.MessageResultRepository;
+import io.xream.sqli.core.builder.Criteria;
+import io.xream.sqli.core.builder.condition.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import io.xream.x7.common.bean.Criteria;
-import io.xream.x7.common.bean.condition.RefreshCondition;
-import io.xream.x7.repository.ManuRepository;
+import io.xream.sqli.repository.ManuRepository;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MessageResultServiceImpl implements MessageResultService {
