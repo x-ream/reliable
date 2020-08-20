@@ -2,6 +2,9 @@ package io.xream.reliable.bean;
 
 import io.xream.sqli.annotation.X;
 
+/**
+ * @Author Sim
+ */
 public class Cat {
 
     @X.Key

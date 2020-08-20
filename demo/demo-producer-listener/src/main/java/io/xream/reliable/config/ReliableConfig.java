@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import io.xream.x7.common.util.JsonX;
 
 @Configuration
+
+/**
+ * @Author Sim
+ */
 public class ReliableConfig {
 
 

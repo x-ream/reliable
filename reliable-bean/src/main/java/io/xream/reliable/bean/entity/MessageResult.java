@@ -22,6 +22,9 @@ import io.xream.sqli.annotation.X;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @Author Sim
+ */
 public class MessageResult<T> implements Serializable {
     private static final long serialVersionUID = 4901898223573975818L;
 

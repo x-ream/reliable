@@ -33,6 +33,10 @@ import java.util.Date;
 import java.util.List;
 
 @Component
+
+/**
+ * @Author Sim
+ */
 public class NextBusiness {
 
     @Transactional

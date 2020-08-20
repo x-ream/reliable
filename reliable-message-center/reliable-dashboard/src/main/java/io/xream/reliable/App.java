@@ -23,7 +23,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import io.xream.x7.EnableCorsConfig;
 import io.xream.x7.EnableDateToLongForJackson;
 
-
+/**
+ * @Author Sim
+ */
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableDateToLongForJackson

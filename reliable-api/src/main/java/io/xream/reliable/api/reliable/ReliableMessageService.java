@@ -24,6 +24,9 @@ import io.xream.sqli.core.builder.condition.RefreshCondition;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Author Sim
+ */
 public interface ReliableMessageService {
 
     boolean create(ReliableMessage message);

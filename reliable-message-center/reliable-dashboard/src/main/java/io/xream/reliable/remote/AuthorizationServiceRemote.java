@@ -20,6 +20,9 @@ import io.xream.x7.reyc.ReyClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * @Author Sim
+ */
 @ReyClient("http://${reliable.dashboard.authorization.url.server}" )
 public interface AuthorizationServiceRemote {
 

@@ -27,6 +27,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Author Sim
+ */
 @Service
 public class ReliableMessageServiceImpl implements ReliableMessageService {
 

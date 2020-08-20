@@ -20,6 +20,10 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.sqli.api.BaseRepository;
 import org.springframework.stereotype.Repository;
 
+
+/**
+ * @Author Sim
+ */
 @Repository
 public interface MessageResultRepository extends BaseRepository<MessageResult> {
 }

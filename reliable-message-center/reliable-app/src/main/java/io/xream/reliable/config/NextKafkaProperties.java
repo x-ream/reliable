@@ -5,6 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * @Author Sim
+ */
 @EnableConfigurationProperties
 @Configuration
 @ConfigurationProperties(prefix = "next.kafka")

@@ -20,6 +20,9 @@ import io.xream.x7.reliable.TCCTopic;
 
 import java.io.Serializable;
 
+/**
+ * @Author Sim
+ */
 public class ConsumedReliableDto implements Serializable {
     private static final long serialVersionUID = 4467713246475543155L;
 

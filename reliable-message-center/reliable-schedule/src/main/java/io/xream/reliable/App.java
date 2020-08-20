@@ -24,6 +24,9 @@ import io.xream.x7.EnableCorsConfig;
 import io.xream.x7.EnableDateToLongForJackson;
 
 
+/**
+ * @Author Sim
+ */
 @SpringBootApplication
 @EnableDateToLongForJackson
 @EnableReyClient

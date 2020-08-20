@@ -21,6 +21,9 @@ import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.sqli.api.BaseRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @Author Sim
+ */
 @Repository
 public interface ReliableMessageRepository extends BaseRepository<ReliableMessage> {
 }

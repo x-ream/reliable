@@ -24,6 +24,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author Sim
+ */
 public class ReliableDto<T> implements MessageTraceable, Serializable {
     private static final long serialVersionUID = 4467713246475538455L;
 

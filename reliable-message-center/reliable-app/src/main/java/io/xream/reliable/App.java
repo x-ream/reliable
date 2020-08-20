@@ -24,7 +24,9 @@ import io.xream.x7.EnableCorsConfig;
 import io.xream.x7.EnableDateToLongForJackson;
 import io.xream.x7.EnableX7Repository;
 
-
+/**
+ * @Author Sim
+ */
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableX7Repository

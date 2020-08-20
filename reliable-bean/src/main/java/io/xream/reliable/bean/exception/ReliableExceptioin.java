@@ -16,6 +16,9 @@
  */
 package io.xream.reliable.bean.exception;
 
+/**
+ * @Author Sim
+ */
 public class ReliableExceptioin extends RuntimeException {
 
     private String message;

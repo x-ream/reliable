@@ -5,5 +5,9 @@ import io.xream.sqli.api.BaseRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
+
+/**
+ * @Author Sim
+ */
 public interface CatOrderRepository extends BaseRepository<CatOrder> {
 }

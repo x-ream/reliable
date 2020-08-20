@@ -28,7 +28,9 @@ import org.springframework.kafka.core.ProducerFactory;
 
 import java.util.Map;
 
-
+/**
+ * @Author Sim
+ */
 public class NextKafkaProducer implements Producer {
 
     private final static Logger logger = LoggerFactory.getLogger(NextKafkaProducer.class);

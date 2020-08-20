@@ -31,6 +31,10 @@ import java.util.Date;
 import java.util.UUID;
 
 @Component
+
+/**
+ * @Author Sim
+ */
 public class TccBusiness {
 
     public final static String SVC_DONE_PREFIX = "&";

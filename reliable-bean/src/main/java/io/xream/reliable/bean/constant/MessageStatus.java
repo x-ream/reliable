@@ -16,6 +16,9 @@
  */
 package io.xream.reliable.bean.constant;
 
+/**
+ * @Author Sim
+ */
 public enum MessageStatus {
 
     NEXT,

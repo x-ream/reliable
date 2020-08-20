@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+
+/**
+ * @Author Sim
+ */
 @ReyClient("http://${reliable.app}/failed" )
 public interface FailedServiceRemote {
 

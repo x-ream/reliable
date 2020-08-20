@@ -27,6 +27,9 @@ import io.xream.sqli.repository.api.ManuRepository;
 
 import java.util.List;
 
+/**
+ * @Author Sim
+ */
 @Service
 public class MessageResultServiceImpl implements MessageResultService {
 

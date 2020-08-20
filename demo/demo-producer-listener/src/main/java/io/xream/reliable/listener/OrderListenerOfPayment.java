@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.KafkaListener;
 import io.xream.x7.common.util.JsonX;
 
+
+/**
+ * @Author Sim
+ */
 @Configuration
 public class OrderListenerOfPayment {
 

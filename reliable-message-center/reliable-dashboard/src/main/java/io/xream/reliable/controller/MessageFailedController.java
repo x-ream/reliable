@@ -30,6 +30,10 @@ import io.xream.x7.common.web.ViewEntity;
 
 import java.util.List;
 
+
+/**
+ * @Author Sim
+ */
 @RestController
 @RequestMapping("/message/failed")
 public class MessageFailedController {

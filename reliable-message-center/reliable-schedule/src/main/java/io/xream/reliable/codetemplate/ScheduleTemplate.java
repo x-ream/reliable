@@ -18,6 +18,9 @@ package io.xream.reliable.codetemplate;
 
 import java.util.concurrent.Callable;
 
+/**
+ * @Author Sim
+ */
 public interface ScheduleTemplate {
 
     boolean schedule(Class scheduleClazz, Callable<Boolean> callable);

@@ -25,7 +25,9 @@ import io.xream.x7.common.util.ExceptionUtil;
 import java.util.Date;
 import java.util.concurrent.Callable;
 
-
+/**
+ * @Author Sim
+ */
 public class ScheduleTemplateImpl implements ScheduleTemplate {
 
     public boolean schedule(Class scheduleClazz, Callable<Boolean> callable) {

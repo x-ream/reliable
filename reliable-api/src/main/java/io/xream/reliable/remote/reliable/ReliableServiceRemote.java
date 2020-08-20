@@ -25,6 +25,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+
+/**
+ * @Author Sim
+ */
 @ReyClient("http://${reliable.app}/message" )
 public interface ReliableServiceRemote {
 

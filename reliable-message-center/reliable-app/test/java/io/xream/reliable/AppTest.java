@@ -12,6 +12,10 @@ import javax.annotation.Resource;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
+
+/**
+ * @Author Sim
+ */
 public class AppTest {
 
     @Autowired

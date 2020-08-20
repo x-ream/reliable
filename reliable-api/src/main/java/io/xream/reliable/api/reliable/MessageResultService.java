@@ -23,6 +23,9 @@ import io.xream.sqli.core.builder.condition.RefreshCondition;
 
 import java.util.List;
 
+/**
+ * @Author Sim
+ */
 public interface MessageResultService {
 
     boolean create(MessageResult result);

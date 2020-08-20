@@ -24,6 +24,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @Author Sim
+ */
 public class ReliableMessage<T> implements Serializable {
     private static final long serialVersionUID = 2002563420656592953L;
 

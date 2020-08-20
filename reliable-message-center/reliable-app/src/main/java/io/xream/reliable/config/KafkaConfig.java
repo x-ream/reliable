@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 
 @Configuration
+
+/**
+ * @Author Sim
+ */
 public class KafkaConfig {
 
     @Autowired

@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import io.xream.x7.common.web.ViewEntity;
 
 @ReyClient(value = "${reliable.demo}/payment")
+
+/**
+ * @Author Sim
+ */
 public interface PaymentServiceRemote {
 
     @RequestMapping("/pay")

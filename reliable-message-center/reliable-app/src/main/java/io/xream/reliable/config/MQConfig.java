@@ -6,6 +6,9 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.kafka.core.KafkaTemplate;
 
+/**
+ * @Author Sim
+ */
 public class MQConfig implements
         ApplicationListener<ApplicationStartedEvent> {
     @Override

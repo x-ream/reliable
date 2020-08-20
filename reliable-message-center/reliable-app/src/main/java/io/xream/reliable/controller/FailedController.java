@@ -19,6 +19,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/failed")
+
+/**
+ * @Author Sim
+ */
 public class FailedController {
 
     @Autowired

@@ -25,6 +25,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
 
 
+/**
+ * @Author Sim
+ */
 @Configuration
 public class TrySchedule {
 

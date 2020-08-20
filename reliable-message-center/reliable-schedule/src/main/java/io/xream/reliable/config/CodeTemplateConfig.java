@@ -22,6 +22,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
+/**
+ * @Author Sim
+ */
 @Configuration
 public class CodeTemplateConfig {
 

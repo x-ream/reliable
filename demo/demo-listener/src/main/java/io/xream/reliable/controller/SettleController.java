@@ -11,6 +11,10 @@ import io.xream.x7.common.web.ViewEntity;
 
 @RestController
 @RequestMapping("/settle")
+
+/**
+ * @Author Sim
+ */
 public class SettleController {
 
     @Autowired

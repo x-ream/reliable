@@ -14,6 +14,10 @@ import io.xream.x7.common.web.ViewEntity;
 @Transactional
 @RestController
 @RequestMapping("/payment")
+
+/**
+ * @Author Sim
+ */
 public class PaymentController  {
 
     @Autowired

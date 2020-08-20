@@ -16,6 +16,9 @@
  */
 package io.xream.reliable.produce;
 
+/**
+ * @Author Sim
+ */
 public interface Producer {
 
     boolean send(String topic, String message);

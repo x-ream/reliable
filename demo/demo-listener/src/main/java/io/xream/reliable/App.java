@@ -17,6 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableDateToLongForJackson
 @EnableReyClient
 @EnableCorsConfig
+
+/**
+ * @Author Sim
+ */
 public class App {
 
 	
