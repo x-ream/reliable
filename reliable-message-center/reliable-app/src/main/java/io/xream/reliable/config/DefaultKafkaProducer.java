@@ -18,7 +18,7 @@ package io.xream.reliable.config;
 
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
-import io.xream.x7.common.util.ExceptionUtil;
+import io.xream.x7.base.util.ExceptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;

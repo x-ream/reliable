@@ -27,7 +27,7 @@ import io.xream.sqli.core.builder.CriteriaBuilder;
 import io.xream.sqli.core.builder.condition.RefreshCondition;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import io.xream.x7.common.util.JsonX;
+import io.xream.x7.base.util.JsonX;
 
 import java.util.Date;
 import java.util.List;

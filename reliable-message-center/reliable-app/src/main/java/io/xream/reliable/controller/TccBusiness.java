@@ -24,8 +24,8 @@ import io.xream.reliable.produce.Producer;
 import io.xream.sqli.core.builder.condition.RefreshCondition;
 import io.xream.x7.reliable.TCCTopic;
 import org.springframework.stereotype.Component;
-import io.xream.x7.common.bean.GenericObject;
-import io.xream.x7.common.util.JsonX;
+import io.xream.x7.base.GenericObject;
+import io.xream.x7.base.util.JsonX;
 
 import java.util.Date;
 import java.util.UUID;

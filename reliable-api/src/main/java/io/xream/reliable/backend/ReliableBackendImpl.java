@@ -28,14 +28,9 @@ import io.xream.x7.reliable.TCCTopic;
 import io.xream.x7.reliable.api.MessageTraceable;
 import io.xream.x7.reliable.api.ReliableBackend;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import io.xream.x7.common.bean.GenericObject;
-import io.xream.x7.common.util.ExceptionUtil;
+import io.xream.x7.base.GenericObject;
+import io.xream.x7.base.util.ExceptionUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

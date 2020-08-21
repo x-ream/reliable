@@ -3,7 +3,7 @@ package io.xream.reliable.controller;
 import io.xream.reliable.api.reliable.FailedService;
 import io.xream.reliable.bean.constant.MessageStatus;
 import io.xream.reliable.bean.entity.ReliableMessage;
-import io.xream.sqli.common.web.Direction;
+import io.xream.sqli.page.Direction;
 import io.xream.sqli.core.builder.Criteria;
 import io.xream.sqli.core.builder.CriteriaBuilder;
 import io.xream.sqli.core.builder.condition.RefreshCondition;

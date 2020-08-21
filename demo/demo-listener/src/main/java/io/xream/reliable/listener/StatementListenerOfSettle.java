@@ -5,7 +5,7 @@ import io.xream.reliable.api.reliable.DtoConverter;
 import io.xream.reliable.bean.CatStatement;
 import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.controller.StatementController;
-import io.xream.x7.common.bean.GenericObject;
+import io.xream.x7.base.GenericObject;
 import io.xream.x7.reliable.ReliableOnConsumed;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
