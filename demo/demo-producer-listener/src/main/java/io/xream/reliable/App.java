@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableReliabilityManagement
-@EnableX7Repository
+@EnableX7Repository(baseTypeSupported = true)
 @EnableDateToLongForJackson
 @EnableReyClient
 @EnableCorsConfig

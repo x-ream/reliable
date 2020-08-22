@@ -29,7 +29,7 @@ import io.xream.x7.EnableX7Repository;
  */
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableX7Repository
+@EnableX7Repository(baseTypeSupported = true)
 @EnableDateToLongForJackson
 @EnableReyClient
 @EnableCorsConfig
