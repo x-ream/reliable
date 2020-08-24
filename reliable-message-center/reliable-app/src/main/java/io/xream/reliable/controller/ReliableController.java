@@ -25,7 +25,7 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.RefreshCondition;
 import io.xream.x7.reliable.TCCTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -122,12 +122,13 @@ public class ReliableController {
         reliableMessage.setRefreshAt(date);
         reliableMessage.setStatus(MessageStatus.SEND.toString());
 
-        RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("status",reliableMessage.getStatus());
-        reliableMessageRefreshCondition.refresh("sendAt", reliableMessage.getSendAt());
-        reliableMessageRefreshCondition.refresh("refreshAt", reliableMessage.getRefreshAt());
-        reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-        boolean flag = this.reliableMessageService.refresh(reliableMessageRefreshCondition);
+        boolean flag = this.reliableMessageService.refresh(
+                RefreshCondition.build()
+                        .refresh("status",reliableMessage.getStatus())
+                        .refresh("sendAt", reliableMessage.getSendAt())
+                        .refresh("refreshAt", reliableMessage.getRefreshAt())
+                        .eq("id", reliableMessage.getId())
+        );
 
         if (!flag)
             throw new ReliableExceptioin("reliableMessage refresh persist failed");
@@ -156,11 +157,12 @@ public class ReliableController {
         String resultId = dto.getResultId();
         if (StringUtil.isNotNull(resultId)) {
 
-            RefreshCondition<MessageResult> rmCondition = new RefreshCondition<>();
-            rmCondition.refresh("status", dto.getTcc());
-            rmCondition.refresh("refreshAt", date);
-            rmCondition.and().eq("id", resultId).and().eq("status", MessageStatus.BLANK);
-            boolean flag = this.messageResultService.refresh(rmCondition);
+            boolean flag = this.messageResultService.refresh(
+                    RefreshCondition.build()
+                            .refresh("status", dto.getTcc())
+                            .refresh("refreshAt", date)
+                            .eq("id", resultId).eq("status", MessageStatus.BLANK)
+            );
             if (!flag)
                 throw new ReliableExceptioin("Problem with refresh resultMessage, id = " + resultId);
         }else {
@@ -184,13 +186,13 @@ public class ReliableController {
             }
         }
 
-        RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("svcDone = CONCAT(svcDone, ? , '" + TccBusiness.SVC_DONE_PREFIX +"' )", svc);
-        reliableMessageRefreshCondition.refresh("refreshAt", date);
-        reliableMessageRefreshCondition.and().eq("id", msgId);
-        reliableMessageRefreshCondition.and().eq("tcc", dto.getUseTcc() ? dto.getTcc() : null);
-
-        return this.reliableMessageService.refresh(reliableMessageRefreshCondition);
+        return this.reliableMessageService.refresh(
+                RefreshCondition.build()
+                        .refresh("svcDone = CONCAT(svcDone, ? , '" + TccBusiness.SVC_DONE_PREFIX +"' )", svc)
+                        .refresh("refreshAt", date)
+                        .eq("id", msgId)
+                        .eq("tcc", dto.getUseTcc() ? dto.getTcc() : null)
+        );
 
     }
 

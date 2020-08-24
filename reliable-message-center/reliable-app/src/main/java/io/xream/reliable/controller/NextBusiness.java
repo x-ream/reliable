@@ -22,9 +22,9 @@ import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.core.builder.Criteria;
-import io.xream.sqli.core.builder.CriteriaBuilder;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.Criteria;
+import io.xream.sqli.builder.CriteriaBuilder;
+import io.xream.sqli.builder.RefreshCondition;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import io.xream.x7.base.util.JsonX;
@@ -42,22 +42,22 @@ public class NextBusiness {
     @Transactional
     public boolean produce(String parentId, ReliableMessageService reliableMessageService, Producer producer){
 
-        CriteriaBuilder builder = CriteriaBuilder.build(ReliableMessage.class);
+        CriteriaBuilder builder = CriteriaBuilder.builder(ReliableMessage.class);
         builder.and().eq("parentId",parentId);
         builder.and().eq("status",MessageStatus.NEXT);
-        Criteria criteria = builder.get();
+        Criteria criteria = builder.build();
 
         List<ReliableMessage> list = reliableMessageService.listByCriteria(criteria);
 
         Date date = new Date();
 
         for (ReliableMessage reliableMessage : list) {
-            RefreshCondition<ReliableMessage> condition = new RefreshCondition<>();
-            condition.refresh("status",MessageStatus.SEND);
-            condition.refresh("sendAt",date.getTime());
-            condition.refresh("refreshAt", date);
-            condition.and().eq("id", reliableMessage.getId());
-            reliableMessageService.refresh(condition);
+            reliableMessageService.refresh(
+                    RefreshCondition.build().refresh("status",MessageStatus.SEND)
+                            .refresh("sendAt",date.getTime())
+                            .refresh("refreshAt", date)
+                            .eq("id", reliableMessage.getId())
+            );
         }
 
         for (ReliableMessage reliableMessage : list) {

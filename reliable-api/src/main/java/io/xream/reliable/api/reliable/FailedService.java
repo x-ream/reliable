@@ -17,8 +17,8 @@
 package io.xream.reliable.api.reliable;
 
 import io.xream.reliable.bean.entity.ReliableMessage;
-import io.xream.sqli.core.builder.Criteria;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.Criteria;
+import io.xream.sqli.builder.RefreshCondition;
 
 import java.util.List;
 import java.util.Map;
@@ -31,5 +31,5 @@ public interface FailedService {
     boolean refresh(RefreshCondition<ReliableMessage> condition);
     boolean refreshUnSafe(RefreshCondition<ReliableMessage> condition);
 
-    List<Map<String, Object>> listByResultMap(Criteria.ResultMappedCriteria resultMappedCriteria);
+    List<Map<String, Object>> listByResultMap(Criteria.ResultMapCriteria ResultMapCriteria);
 }

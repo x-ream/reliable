@@ -21,7 +21,7 @@ import io.xream.reliable.bean.constant.MessageStatus;
 import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.RefreshCondition;
 import io.xream.x7.reliable.TCCTopic;
 import org.springframework.stereotype.Component;
 import io.xream.x7.base.GenericObject;

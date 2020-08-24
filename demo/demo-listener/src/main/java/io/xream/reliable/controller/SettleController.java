@@ -2,7 +2,7 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.bean.CatSettle;
 import io.xream.reliable.repository.CatSettleRepository;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

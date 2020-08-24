@@ -23,9 +23,9 @@ import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.core.builder.Criteria;
-import io.xream.sqli.core.builder.CriteriaBuilder;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.Criteria;
+import io.xream.sqli.builder.CriteriaBuilder;
+import io.xream.sqli.builder.RefreshCondition;
 import io.xream.x7.base.GenericObject;
 import io.xream.x7.reliable.TCCTopic;
 import org.apache.commons.collections.MapUtils;
@@ -36,7 +36,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import io.xream.x7.base.GenericObject;
 import io.xream.x7.base.util.JsonX;
 import io.xream.x7.base.util.StringUtil;
 
@@ -78,10 +77,10 @@ public class ScheduleReliableController {
     @RequestMapping(value = "/tryToProduceNext",method = RequestMethod.GET)
     public boolean tryToProduceNext(){
 
-        CriteriaBuilder builder = CriteriaBuilder.build(ReliableMessage.class);
+        CriteriaBuilder builder = CriteriaBuilder.builder(ReliableMessage.class);
         builder.and().eq("status",MessageStatus.NEXT);
 
-        Criteria criteria = builder.get();
+        Criteria criteria = builder.build();
 
         List<ReliableMessage> list = this.reliableMessageService.listByCriteria(criteria);
 
@@ -111,14 +110,14 @@ public class ScheduleReliableController {
 
         Date createAt = new Date(System.currentTimeMillis() - checkStatusDuration);
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
+        CriteriaBuilder.ResultMapBuilder builder = CriteriaBuilder.resultMapBuilder();
         builder.resultKey("id").resultKey("svcDone").resultKey("svcList").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("body");
         builder.and().eq("status", MessageStatus.SEND);
         builder.and().lt("createAt", createAt);
 
-        Criteria.ResultMappedCriteria resultMappedCriteria = builder.get();
+        Criteria.ResultMapCriteria ResultMapCriteria = builder.build();
 
-        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(resultMappedCriteria);
+        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(ResultMapCriteria);
 
         if (list.isEmpty())
             return true;
@@ -160,11 +159,12 @@ public class ScheduleReliableController {
                 }
             } else {
                 if (flag) {
-                    RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-                    reliableMessageRefreshCondition.refresh("status", MessageStatus.OK);
-                    reliableMessageRefreshCondition.refresh("refreshAt", date);
-                    reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-                    this.reliableMessageService.refresh(reliableMessageRefreshCondition);
+                    this.reliableMessageService.refresh(
+                            RefreshCondition.build()
+                                    .refresh("status", MessageStatus.OK)
+                                    .refresh("refreshAt", date)
+                                    .eq("id", reliableMessage.getId())
+                    );
 
                     try {
                         this.nextBusiness.produce(reliableMessage.getId(),reliableMessageService,nextProducer);
@@ -188,15 +188,15 @@ public class ScheduleReliableController {
         long now = System.currentTimeMillis();
         final long sendAt = now - rrd;
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
+        CriteriaBuilder.ResultMapBuilder builder = CriteriaBuilder.resultMapBuilder();
         builder.resultKey("id").resultKey("svcList").resultKey("svcDone").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("topic").resultKey("body");
         builder.and().eq("status", MessageStatus.SEND);
 //        builder.and().x("retryCount < retryMax"); //需要人工补单
         builder.and().lt("sendAt", sendAt);
 
-        Criteria.ResultMappedCriteria resultMappedCriteria = builder.get();
+        Criteria.ResultMapCriteria ResultMapCriteria = builder.build();
 
-        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(resultMappedCriteria);
+        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(ResultMapCriteria);
 
         List<ReliableMessage> rmList = new ArrayList<>();
 
@@ -235,10 +235,10 @@ public class ScheduleReliableController {
 
         if (reliableMessage.getRetryCount() < reliableMessage.getRetryMax()) {
 
-            CriteriaBuilder builder = CriteriaBuilder.build(MessageResult.class);
+            CriteriaBuilder builder = CriteriaBuilder.builder(MessageResult.class);
             builder.and().eq("msgId", reliableMessage.getId());
 
-            Criteria criteria = builder.get();
+            Criteria criteria = builder.build();
 
             List<MessageResult> list = this.messageResultService.listByCriteria(criteria);
 
@@ -294,14 +294,14 @@ public class ScheduleReliableController {
         cleanStatusList.add(MessageStatus.OK.toString());
         cleanStatusList.add(MessageStatus.BLANK.toString());
 
-        CriteriaBuilder.ResultMappedBuilder builder = CriteriaBuilder.buildResultMapped();
+        CriteriaBuilder.ResultMapBuilder builder = CriteriaBuilder.resultMapBuilder();
         builder.resultKey("id");
         builder.and().eq("underConstruction", false);
         builder.and().in("status", cleanStatusList);
 
-        Criteria.ResultMappedCriteria resultMappedCriteria = builder.get();
+        Criteria.ResultMapCriteria ResultMapCriteria = builder.build();
 
-        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(resultMappedCriteria);
+        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(ResultMapCriteria);
 
 
         for (Map<String, Object> map : list) {

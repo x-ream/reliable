@@ -19,8 +19,8 @@ package io.xream.reliable.service.reliable;
 import io.xream.reliable.api.reliable.ReliableMessageService;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.repository.reliable.ReliableMessageRepository;
-import io.xream.sqli.core.builder.Criteria;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.Criteria;
+import io.xream.sqli.builder.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,8 +57,8 @@ public class ReliableMessageServiceImpl implements ReliableMessageService {
     }
 
     @Override
-    public List<Map<String, Object>> listByResultMap(Criteria.ResultMappedCriteria resultMappedCriteria) {
-        return this.repository.list(resultMappedCriteria);
+    public List<Map<String, Object>> listByResultMap(Criteria.ResultMapCriteria ResultMapCriteria) {
+        return this.repository.list(ResultMapCriteria);
     }
 
     @Override

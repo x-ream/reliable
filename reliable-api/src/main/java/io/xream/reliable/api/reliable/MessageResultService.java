@@ -17,8 +17,8 @@
 package io.xream.reliable.api.reliable;
 
 import io.xream.reliable.bean.entity.MessageResult;
-import io.xream.sqli.core.builder.Criteria;
-import io.xream.sqli.core.builder.condition.RefreshCondition;
+import io.xream.sqli.builder.Criteria;
+import io.xream.sqli.builder.RefreshCondition;
 
 
 import java.util.List;
