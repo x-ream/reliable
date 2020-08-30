@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableDateToLongForJackson
 @EnableReyClient
 @EnableCorsConfig
-public class App {
+public class  App {
 
 	
 	public static void main(String[] args) {
