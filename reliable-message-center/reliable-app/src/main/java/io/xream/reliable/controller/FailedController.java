@@ -34,7 +34,7 @@ public class FailedController {
         builder.resultKey("id").resultKey("status").resultKey("retryMax").resultKey("topic");
         builder.and().eq("status", MessageStatus.FAIL);
         builder.and().gt("retryMax", 0);
-        builder.paged().sort("topic", Direction.DESC);
+        builder.sort("topic", Direction.DESC);
 
         Criteria.ResultMapCriteria criteria = builder.build();
 
