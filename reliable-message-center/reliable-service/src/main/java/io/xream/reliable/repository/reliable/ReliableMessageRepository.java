@@ -18,8 +18,8 @@ package io.xream.reliable.repository.reliable;
 
 
 import io.xream.reliable.bean.entity.ReliableMessage;
-import io.xream.sqli.repository.api.BaseRepository;
-import io.xream.sqli.repository.api.ResultMapRepository;
+import io.xream.sqli.api.BaseRepository;
+import io.xream.sqli.api.ResultMapRepository;
 import org.springframework.stereotype.Repository;
 
 /**

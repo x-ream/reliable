@@ -1,7 +1,7 @@
 package io.xream.reliable.repository;
 
 import io.xream.reliable.bean.CatStatement;
-import io.xream.sqli.repository.api.BaseRepository;
+import io.xream.sqli.api.BaseRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
