@@ -21,9 +21,10 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.repository.reliable.MessageResultRepository;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.repository.api.NativeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import io.xream.sqli.repository.api.ManuRepository;
+
 
 import java.util.List;
 
@@ -35,6 +36,8 @@ public class MessageResultServiceImpl implements MessageResultService {
 
     @Autowired
     private MessageResultRepository repository;
+    @Autowired
+    private NativeRepository nativeRepository;
 
     public boolean create(MessageResult result) {
         this.repository.create(result);
@@ -52,7 +55,7 @@ public class MessageResultServiceImpl implements MessageResultService {
     @Override
     public boolean removeByMessageId(String id) {
         String sql = "delete from messageResult where msgId = " + id;
-        return ManuRepository.execute(new MessageResult(),sql );
+        return nativeRepository.execute(MessageResult.class,sql );
     }
 
     @Override

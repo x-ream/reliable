@@ -2,9 +2,9 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.api.reliable.FailedService;
 import io.xream.reliable.bean.constant.MessageStatus;
-import io.xream.sqli.page.Direction;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.CriteriaBuilder;
+import io.xream.sqli.builder.Direction;
 import io.xream.sqli.builder.RefreshCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
