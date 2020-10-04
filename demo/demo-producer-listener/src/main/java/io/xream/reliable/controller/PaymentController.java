@@ -3,13 +3,13 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.bean.Cat;
 import io.xream.reliable.repository.CatRepository;
+import io.xream.x7.base.web.ViewEntity;
 import io.xream.x7.reliable.ReliableProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.xream.x7.base.web.ViewEntity;
 
 @Transactional
 @RestController

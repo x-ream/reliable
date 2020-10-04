@@ -22,10 +22,10 @@ import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.produce.Producer;
 import io.xream.sqli.builder.RefreshCondition;
-import io.xream.x7.reliable.TCCTopic;
-import org.springframework.stereotype.Component;
 import io.xream.x7.base.GenericObject;
 import io.xream.x7.base.util.JsonX;
+import io.xream.x7.reliable.TCCTopic;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.UUID;
@@ -44,13 +44,14 @@ public class TccBusiness {
 
         Date date = new Date();
 
-        RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("status", MessageStatus.OK);
-        reliableMessageRefreshCondition.refresh("refreshAt", date);
-        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CONFIRM);
-        reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-        reliableMessageRefreshCondition.and().eq("tcc", TCCTopic._TCC_TRY);
-        boolean flag = reliableMessageService.refresh(reliableMessageRefreshCondition); //STEP 1
+        boolean flag = reliableMessageService.refresh(
+                RefreshCondition.build()
+                        .refresh("status", MessageStatus.OK)
+                        .refresh("refreshAt", date)
+                        .refresh("tcc", TCCTopic._TCC_CONFIRM)
+                        .eq("id", reliableMessage.getId())
+                        .eq("tcc", TCCTopic._TCC_TRY)
+        ); //STEP 1
 
         if (!flag)
             return flag;
@@ -86,14 +87,15 @@ public class TccBusiness {
 
         Date date = new Date();
 
-        RefreshCondition<ReliableMessage> reliableMessageRefreshCondition = new RefreshCondition<>();
-        reliableMessageRefreshCondition.refresh("status", MessageStatus.FAIL);
-        reliableMessageRefreshCondition.refresh("refreshAt", date);
-        reliableMessageRefreshCondition.refresh("tcc", TCCTopic._TCC_CANCEL);
-        reliableMessageRefreshCondition.and().eq("id", reliableMessage.getId());
-        reliableMessageRefreshCondition.and().eq("svcDone",reliableMessage.getSvcDone());
-        reliableMessageRefreshCondition.and().ne("tcc", TCCTopic._TCC_CANCEL);
-        boolean flag = reliableMessageService.refresh(reliableMessageRefreshCondition); //STEP 1
+        boolean flag = reliableMessageService.refresh(
+                RefreshCondition.build()
+                        .refresh("status", MessageStatus.FAIL)
+                        .refresh("refreshAt", date)
+                        .refresh("tcc", TCCTopic._TCC_CANCEL)
+                        .eq("id", reliableMessage.getId())
+                        .eq("svcDone",reliableMessage.getSvcDone())
+                        .ne("tcc", TCCTopic._TCC_CANCEL)
+        ); //STEP 1
 
         if (!flag)
             return flag;

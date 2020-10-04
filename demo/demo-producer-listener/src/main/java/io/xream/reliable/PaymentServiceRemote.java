@@ -1,9 +1,9 @@
 package io.xream.reliable;
 
 import io.xream.reliable.bean.Cat;
+import io.xream.x7.base.web.ViewEntity;
 import io.xream.x7.reyc.ReyClient;
 import org.springframework.web.bind.annotation.RequestMapping;
-import io.xream.x7.base.web.ViewEntity;
 
 @ReyClient(value = "${reliable.demo}/payment")
 

@@ -20,7 +20,6 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.RefreshCondition;
 
-
 import java.util.List;
 
 /**

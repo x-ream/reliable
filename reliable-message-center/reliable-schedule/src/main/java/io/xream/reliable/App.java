@@ -16,12 +16,12 @@
  */
 package io.xream.reliable;
 
+import io.xream.x7.EnableCorsConfig;
+import io.xream.x7.EnableDateToLongForJackson;
 import io.xream.x7.EnableReyClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import io.xream.x7.EnableCorsConfig;
-import io.xream.x7.EnableDateToLongForJackson;
 
 
 /**

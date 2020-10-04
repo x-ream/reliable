@@ -19,12 +19,11 @@ package io.xream.reliable.service.reliable;
 import io.xream.reliable.api.reliable.MessageResultService;
 import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.repository.reliable.MessageResultRepository;
+import io.xream.sqli.api.NativeRepository;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.RefreshCondition;
-import io.xream.sqli.api.NativeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 
