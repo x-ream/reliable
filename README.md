@@ -8,7 +8,6 @@
 
 
 ## code annotation
-    (x7/x7-reyc/io.xream.x7.reliable:)
     @EnableReliabilityManagement
     @ReliableProducer
     @ReliableOnConsumed
