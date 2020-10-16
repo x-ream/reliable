@@ -1,7 +1,7 @@
 # reliable
    [http://reliable.xream.io](http://reliable.xream.io)
 
-[![license](https://img.shields.io/github/license/bb-ream/reliable.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![license](https://img.shields.io/github/license/x-ream/reliable.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![maven](https://img.shields.io/maven-central/v/io.xream.reliable/reliable.svg)](https://search.maven.org/search?q=io.xream)
 
     mq transaction, with tcc option
