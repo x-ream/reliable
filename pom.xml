@@ -9,7 +9,7 @@
     <artifactId>reliable</artifactId>
     <name>reliable</name>
     <packaging>pom</packaging>
-    <version>1.1.17.RELEASE</version>
+    <version>1.2.0</version>
     <description>http://reliable.xream.io</description>
     <url>http://reliable.xream.io</url>
 
@@ -19,20 +19,21 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
         <maven.test.skip>true</maven.test.skip>
-        <x7.version>2.6.0.RELEASE</x7.version>
+        <x7.version>2.7.0</x7.version>
     </properties>
 
     <modules>
-        <module>reliable-bean</module>
-        <module>reliable-api</module>
+        <module>reliable-entity</module>
+        <module>reliable-core</module>
         <module>reliable-spring-boot-starter</module>
+        <module>reliable-api</module>
     </modules>
 
     <scm>
         <connection>scm:git:https://github.com/x-ream/reliable</connection>
         <developerConnection>scm:git:https://github.com/x-ream/reliable</developerConnection>
         <url>scm:git:https://github.com/x-ream/reliable</url>
-        <tag>1.1.17.RELEASE</tag>
+        <tag>1.2.0</tag>
     </scm>
 
     <licenses>

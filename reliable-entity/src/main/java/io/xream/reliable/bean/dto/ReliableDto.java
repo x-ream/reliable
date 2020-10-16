@@ -18,7 +18,7 @@ package io.xream.reliable.bean.dto;
 
 import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.bean.entity.ReliableMessage;
-import io.xream.x7.reliable.api.MessageTraceable;
+import io.xream.reliable.interner.MessageTraceable;
 
 import java.io.Serializable;
 import java.util.ArrayList;

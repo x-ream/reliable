@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>reliable-spring-boot-starter</artifactId>
+    <artifactId>reliable-core</artifactId>
 
     <dependencies>
         <dependency>
@@ -22,12 +22,6 @@
             <artifactId>reliable-entity</artifactId>
             <version>1.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>io.xream.reliable</groupId>
-            <artifactId>reliable-core</artifactId>
-            <version>1.2.0</version>
-        </dependency>
     </dependencies>
-
 
 </project>

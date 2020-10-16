@@ -16,9 +16,9 @@
  */
 package io.xream.reliable.bean.entity;
 
+import io.xream.reliable.TCCTopic;
 import io.xream.sqli.annotation.X;
 import io.xream.x7.base.GenericObject;
-import io.xream.x7.reliable.TCCTopic;
 
 import java.io.Serializable;
 import java.util.Date;

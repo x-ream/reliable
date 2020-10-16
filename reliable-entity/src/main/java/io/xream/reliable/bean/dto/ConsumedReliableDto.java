@@ -16,7 +16,7 @@
  */
 package io.xream.reliable.bean.dto;
 
-import io.xream.x7.reliable.TCCTopic;
+import io.xream.reliable.TCCTopic;
 
 import java.io.Serializable;
 

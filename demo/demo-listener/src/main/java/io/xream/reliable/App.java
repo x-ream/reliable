@@ -1,10 +1,10 @@
 package io.xream.reliable;
 
+import io.xream.reliable.api.EnableReliabilityManagement;
 import io.xream.x7.EnableCorsConfig;
 import io.xream.x7.EnableDateToLongForJackson;
 import io.xream.x7.EnableReyClient;
 import io.xream.x7.EnableX7Repository;
-import io.xream.x7.reliable.EnableReliabilityManagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;

@@ -53,8 +53,8 @@ public class MessageResultServiceImpl implements MessageResultService {
 
     @Override
     public boolean removeByMessageId(String id) {
-        String sql = "delete from messageResult where msgId = " + id;
-        return nativeRepository.execute(MessageResult.class,sql );
+        String sql = "delete from messageResult where msgId = ?";
+        return nativeRepository.execute(sql ,id);
     }
 
     @Override

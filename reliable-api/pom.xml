@@ -5,18 +5,11 @@
     <parent>
         <artifactId>reliable</artifactId>
         <groupId>io.xream.reliable</groupId>
-        <version>1.1.17.RELEASE</version>
+        <version>1.2.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>reliable-api</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.xream.reliable</groupId>
-            <artifactId>reliable-bean</artifactId>
-            <version>1.1.17.RELEASE</version>
-        </dependency>
-    </dependencies>
 
 </project>
