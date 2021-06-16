@@ -22,7 +22,7 @@ import io.xream.reliable.bean.constant.MessageStatus;
 import io.xream.reliable.bean.dto.ReliableDto;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.GenericObject;
 import io.xream.x7.base.util.JsonX;
 import org.springframework.stereotype.Component;
@@ -45,12 +45,12 @@ public class TccBusiness {
         Date date = new Date();
 
         boolean flag = reliableMessageService.refresh(
-                RefreshCondition.build()
+                RefreshBuilder.builder()
                         .refresh("status", MessageStatus.OK)
                         .refresh("refreshAt", date)
                         .refresh("tcc", TCCTopic._TCC_CONFIRM)
                         .eq("id", reliableMessage.getId())
-                        .eq("tcc", TCCTopic._TCC_TRY)
+                        .eq("tcc", TCCTopic._TCC_TRY).build()
         ); //STEP 1
 
         if (!flag)
@@ -88,13 +88,13 @@ public class TccBusiness {
         Date date = new Date();
 
         boolean flag = reliableMessageService.refresh(
-                RefreshCondition.build()
+                RefreshBuilder.builder()
                         .refresh("status", MessageStatus.FAIL)
                         .refresh("refreshAt", date)
                         .refresh("tcc", TCCTopic._TCC_CANCEL)
                         .eq("id", reliableMessage.getId())
                         .eq("svcDone",reliableMessage.getSvcDone())
-                        .ne("tcc", TCCTopic._TCC_CANCEL)
+                        .ne("tcc", TCCTopic._TCC_CANCEL).build()
         ); //STEP 1
 
         if (!flag)

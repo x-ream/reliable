@@ -5,7 +5,7 @@ import io.xream.reliable.bean.constant.MessageStatus;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.CriteriaBuilder;
 import io.xream.sqli.builder.Direction;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,8 +62,8 @@ public class FailedController {
     public boolean retryAll(){
 
         return this.failedService.refreshUnSafe(
-                RefreshCondition.build().refresh("status",MessageStatus.SEND).refresh("retryCount",0)
-                        .eq("status",MessageStatus.FAIL).gt("retryMax",0)
+                RefreshBuilder.builder().refresh("status",MessageStatus.SEND).refresh("retryCount",0)
+                        .eq("status",MessageStatus.FAIL).gt("retryMax",0).build()
         );
     }
 
@@ -71,9 +71,9 @@ public class FailedController {
     public boolean retry(@PathVariable String messageId){
 
         return this.failedService.refresh(
-                RefreshCondition.build().refresh("status",MessageStatus.SEND)
+                RefreshBuilder.builder().refresh("status",MessageStatus.SEND)
                         .refresh("retryCount",0)
-                        .eq("id",messageId)
+                        .eq("id",messageId).build()
         );
     }
 

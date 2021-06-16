@@ -2,7 +2,7 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.bean.CatSettle;
 import io.xream.reliable.repository.CatSettleRepository;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.web.ViewEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,10 +30,11 @@ public class SettleController {
     @RequestMapping("/confirm")
     public ViewEntity confirm(CatSettle catSettle) {
 
-        RefreshCondition<CatSettle> CatSettleRefreshCondition = new RefreshCondition<>();
-        CatSettleRefreshCondition.refresh("name",catSettle.getName());
-        CatSettleRefreshCondition.and().eq("id",catSettle.getId());
-        repository.refresh(CatSettleRefreshCondition);
+        repository.refresh(
+                RefreshBuilder.builder()
+                        .refresh("name",catSettle.getName())
+                        .eq("id",catSettle.getId()).build()
+        );
 
         return ViewEntity.ok();
     }
@@ -41,10 +42,11 @@ public class SettleController {
     @RequestMapping("/cancel")
     public ViewEntity cancel(CatSettle catSettle) {
 
-        RefreshCondition<CatSettle> CatSettleRefreshCondition = new RefreshCondition<>();
-        CatSettleRefreshCondition.refresh("name",catSettle.getName());
-        CatSettleRefreshCondition.and().eq("id",catSettle.getId());
-        repository.refresh(CatSettleRefreshCondition);
+        repository.refresh(
+                RefreshBuilder.builder()
+                        .refresh("name",catSettle.getName())
+                        .eq("id",catSettle.getId()).build()
+        );
 
         return ViewEntity.ok();
     }

@@ -18,7 +18,7 @@ package io.xream.reliable.remote.reliable;
 
 import io.xream.reliable.bean.dto.ConsumedReliableDto;
 import io.xream.reliable.bean.dto.ReliableDto;
-import io.xream.x7.reyc.ReyClient;
+import io.xream.x7.annotation.ReyClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 

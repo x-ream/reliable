@@ -16,7 +16,7 @@
  */
 package io.xream.reliable.remote;
 
-import io.xream.x7.reyc.ReyClient;
+import io.xream.x7.annotation.ReyClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 

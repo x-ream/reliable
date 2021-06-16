@@ -3,7 +3,7 @@ package io.xream.reliable.controller;
 
 import io.xream.reliable.bean.CatOrder;
 import io.xream.reliable.repository.CatOrderRepository;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.web.ViewEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,10 +34,12 @@ public class OrderController {
     @RequestMapping("/confirm")
     public ViewEntity confirm(CatOrder catOrder) {
 
-        RefreshCondition<CatOrder> catOrderRefreshCondition = new RefreshCondition<>();
-        catOrderRefreshCondition.refresh("status",catOrder.getStatus());
-        catOrderRefreshCondition.and().eq("id",catOrder.getId());
-        repository.refresh(catOrderRefreshCondition);
+        repository.refresh(
+                RefreshBuilder.builder()
+                        .refresh("status",catOrder.getStatus())
+                        .eq("id",catOrder.getId()).build()
+
+        );
 
         return ViewEntity.ok();
     }
@@ -45,10 +47,10 @@ public class OrderController {
     @RequestMapping("/cancel")
     public ViewEntity cancel(CatOrder catOrder) {
 
-        RefreshCondition<CatOrder> catOrderRefreshCondition = new RefreshCondition<>();
-        catOrderRefreshCondition.refresh("status",catOrder.getStatus());
-        catOrderRefreshCondition.and().eq("id",catOrder.getId());
-        repository.refresh(catOrderRefreshCondition);
+        repository.refresh(RefreshBuilder.builder()
+                .refresh("status",catOrder.getStatus())
+                .eq("id",catOrder.getId()).build()
+        );
 
         return ViewEntity.ok();
     }

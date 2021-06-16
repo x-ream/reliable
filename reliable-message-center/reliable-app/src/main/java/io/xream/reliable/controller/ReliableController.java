@@ -26,7 +26,7 @@ import io.xream.reliable.bean.entity.MessageResult;
 import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.util.JsonX;
 import io.xream.x7.base.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -126,11 +126,11 @@ public class ReliableController {
         reliableMessage.setStatus(MessageStatus.SEND.toString());
 
         boolean flag = this.reliableMessageService.refresh(
-                RefreshCondition.build()
+                RefreshBuilder.builder()
                         .refresh("status",reliableMessage.getStatus())
                         .refresh("sendAt", reliableMessage.getSendAt())
                         .refresh("refreshAt", reliableMessage.getRefreshAt())
-                        .eq("id", reliableMessage.getId())
+                        .eq("id", reliableMessage.getId()).build()
         );
 
         if (!flag)
@@ -161,10 +161,10 @@ public class ReliableController {
         if (StringUtil.isNotNull(resultId)) {
 
             boolean flag = this.messageResultService.refresh(
-                    RefreshCondition.build()
+                    RefreshBuilder.builder()
                             .refresh("status", dto.getTcc())
                             .refresh("refreshAt", date)
-                            .eq("id", resultId).eq("status", MessageStatus.BLANK)
+                            .eq("id", resultId).eq("status", MessageStatus.BLANK).build()
             );
             if (!flag)
                 throw new ReliableExceptioin("Problem with refresh resultMessage, id = " + resultId);
@@ -190,11 +190,11 @@ public class ReliableController {
         }
 
         return this.reliableMessageService.refresh(
-                RefreshCondition.build()
+                RefreshBuilder.builder()
                         .refresh("svcDone = CONCAT(svcDone, ? , '" + TccBusiness.SVC_DONE_PREFIX +"' )", svc)
                         .refresh("refreshAt", date)
                         .eq("id", msgId)
-                        .eq("tcc", dto.getUseTcc() ? dto.getTcc() : null)
+                        .eq("tcc", dto.getUseTcc() ? dto.getTcc() : null).build()
         );
 
     }

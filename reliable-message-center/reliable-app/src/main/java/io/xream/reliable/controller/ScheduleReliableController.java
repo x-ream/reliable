@@ -26,7 +26,7 @@ import io.xream.reliable.bean.entity.ReliableMessage;
 import io.xream.reliable.produce.Producer;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.CriteriaBuilder;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.GenericObject;
 import io.xream.x7.base.util.JsonX;
 import io.xream.x7.base.util.StringUtil;
@@ -112,12 +112,13 @@ public class ScheduleReliableController {
 
         CriteriaBuilder.ResultMapBuilder builder = CriteriaBuilder.resultMapBuilder();
         builder.resultKey("id").resultKey("svcDone").resultKey("svcList").resultKey("retryCount").resultKey("retryMax").resultKey("tcc").resultKey("body");
-        builder.and().eq("status", MessageStatus.SEND);
-        builder.and().lt("createAt", createAt);
+        builder.eq("status", MessageStatus.SEND);
+        builder.lt("createAt", createAt);
+        builder.sourceBuilder().source("reliableMessage");
 
-        Criteria.ResultMapCriteria ResultMapCriteria = builder.build();
+        Criteria.ResultMapCriteria resultMapCriteria = builder.build();
 
-        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(ResultMapCriteria);
+        List<Map<String, Object>> list = this.reliableMessageService.listByResultMap(resultMapCriteria);
 
         if (list.isEmpty())
             return true;
@@ -160,10 +161,10 @@ public class ScheduleReliableController {
             } else {
                 if (flag) {
                     this.reliableMessageService.refresh(
-                            RefreshCondition.build()
+                            RefreshBuilder.builder()
                                     .refresh("status", MessageStatus.OK)
                                     .refresh("refreshAt", date)
-                                    .eq("id", reliableMessage.getId())
+                                    .eq("id", reliableMessage.getId()).build()
                     );
 
                     try {
@@ -193,6 +194,7 @@ public class ScheduleReliableController {
         builder.and().eq("status", MessageStatus.SEND);
 //        builder.and().x("retryCount < retryMax"); //需要人工补单
         builder.and().lt("sendAt", sendAt);
+        builder.sourceBuilder().source("reliableMessage");
 
         Criteria.ResultMapCriteria ResultMapCriteria = builder.build();
 
@@ -255,12 +257,13 @@ public class ScheduleReliableController {
             reliableMessage.setSendAt(date.getTime());// IMPORTANT
             reliableMessage.setRefreshAt(date);
 
-            RefreshCondition<ReliableMessage> refreshCondition = new RefreshCondition<>();
-            refreshCondition.refresh("retryCount", reliableMessage.getRetryCount() + 1);
-            refreshCondition.refresh("sendAt", reliableMessage.getSendAt());
-            refreshCondition.refresh("refreshAt", reliableMessage.getRefreshAt());
-            refreshCondition.and().eq("id", reliableMessage.getId());
-            this.reliableMessageService.refresh(refreshCondition);
+            this.reliableMessageService.refresh(
+                    RefreshBuilder.builder()
+                            .refresh("retryCount", reliableMessage.getRetryCount() + 1)
+                            .refresh("sendAt", reliableMessage.getSendAt())
+                            .refresh("refreshAt", reliableMessage.getRefreshAt())
+                            .eq("id", reliableMessage.getId()).build()
+            );
 
             /*
              * MQ
@@ -275,11 +278,13 @@ public class ScheduleReliableController {
                 cancel(reliableMessage.getId());
             } else {
                 //进入人工补单审核流程
-                RefreshCondition<ReliableMessage> refreshCondition = new RefreshCondition<>();
-                refreshCondition.refresh("status", MessageStatus.FAIL);
-                refreshCondition.refresh("refreshAt", date);
-                refreshCondition.and().eq("id", reliableMessage.getId());
-                this.reliableMessageService.refresh(refreshCondition);
+
+                this.reliableMessageService.refresh(
+                        RefreshBuilder.builder()
+                                .refresh("status", MessageStatus.FAIL)
+                                .refresh("refreshAt", date)
+                                .eq("id", reliableMessage.getId()).build()
+                );
             }
 
         }

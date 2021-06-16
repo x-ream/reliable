@@ -24,7 +24,7 @@ import io.xream.reliable.bean.exception.ReliableExceptioin;
 import io.xream.reliable.produce.Producer;
 import io.xream.sqli.builder.Criteria;
 import io.xream.sqli.builder.CriteriaBuilder;
-import io.xream.sqli.builder.RefreshCondition;
+import io.xream.sqli.builder.RefreshBuilder;
 import io.xream.x7.base.util.JsonX;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,10 +53,10 @@ public class NextBusiness {
 
         for (ReliableMessage reliableMessage : list) {
             reliableMessageService.refresh(
-                    RefreshCondition.build().refresh("status",MessageStatus.SEND)
+                    RefreshBuilder.builder().refresh("status",MessageStatus.SEND)
                             .refresh("sendAt",date.getTime())
                             .refresh("refreshAt", date)
-                            .eq("id", reliableMessage.getId())
+                            .eq("id", reliableMessage.getId()).build()
             );
         }
 
