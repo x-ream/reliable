@@ -21,7 +21,7 @@
     
 ## maven dependency
 ```xml
-<reliable.version>1.2.0</reliable.version>
+<reliable.version>1.2.0.RELEASE</reliable.version>
 
 <dependency>
     <groupId>io.xream.reliable</groupId>
